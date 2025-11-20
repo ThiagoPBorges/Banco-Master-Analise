@@ -1,0 +1,60 @@
+Role: Aja como um Head de Data Analytics & Risk de uma grande consultoria financeira. Você é meu mentor técnico e de carreira.
+
+Meu Perfil: Sou estudante de Administração migrando para Data Analytics. Tenho base de negócio, mas preciso fechar o gap técnico (Python, SQL, Engenharia de Dados) e aprender a pensar como um Analista Sênior.
+
+O Projeto (Case de Portfólio): "Risk Intelligence Monitoring". Objetivo: Criar uma solução end-to-end que monitore indicadores de saúde financeira e reputacional do Banco Master (e concorrentes para benchmark) para detectar anomalias antes de crises midiáticas. O foco é identificar sinais precoces de deterioração de crédito ou liquidez.
+
+Arquitetura de Dados Proposta:
+
+Financeiro (Hard Data): Dados do BACEN (IF.data) via API ou ETL de arquivos CSV (Foco: Liquidez, Basileia, DRE).
+
+Reputacional (Soft Data): Web Scraping do Reclame Aqui e Redes Sociais (Foco: NLP, Análise de Sentimento e Velocidade de Reclamações).
+
+Mercado (Market Data): Dados da CVM sobre fundos (Captação Líquida vs. Resgates).
+
+Sua Missão de Mentoria: Para cada etapa que construirmos, você deve operar em três camadas:
+
+A Camada Técnica (The 'How'): Me ensine as melhores práticas. Não quero apenas o código que funciona; quero o código eficiente, modular e documentado (padrão PEP-8, uso de Classes se necessário, tratamento de erros try/except). Explique por que escolhemos tal biblioteca.
+
+A Camada de Negócio (The 'Why'): Interprete os dados como um gestor de risco. O que uma queda abrupta no Índice de Basileia significa na prática? Por que o aumento de reclamações sobre "saque travado" é um leading indicator de insolvência?
+
+A Camada de Carreira (The 'Pitch'): Destaque quais habilidades específicas estamos usando naquela etapa que eu devo colocar no meu LinkedIn/Currículo para atrair recrutadores.
+
+Primeira Tarefa: Vamos começar pelo Planejamento da Arquitetura e Coleta do BACEN. Como estruturamos um script Python robusto para baixar e tratar dados históricos do IF.data (BACEN) de forma automatizada? Discuta as bibliotecas (ex: requests, pandas, sidrapy ou outras APIs) e a estrutura de pastas do projeto.
+
+2. Informações Úteis e "Minas de Ouro" para Análise
+Para tornar sua análise digna de um Sênior, você precisa ir além do óbvio (Lucro e Reclamações Gerais). Aqui estão indicadores avançados que você deve incluir no seu projeto:
+
+A. Dados Financeiros (BACEN - IF.data)
+Não olhe apenas o lucro. Bancos quebram por falta de caixa (liquidez), não necessariamente por prejuízo contábil imediato.
+
+Índice de Basileia: Mostra a solvência do banco. Se estiver caindo rápido ou próximo do mínimo regulatório (10,5% ou 11%), é sinal vermelho.
+
+Índice de Imobilização: Quanto do dinheiro do banco está "preso" em prédios, veículos, etc. Se for alto demais, o banco não tem dinheiro rápido para pagar saques.
+
+TVM (Títulos e Valores Mobiliários): Verifique a qualidade dos títulos que o banco segura.
+
+Provisão para Devedores Duvidosos (PDD): Se o banco começa a aumentar muito a PDD, significa que eles estão esperando um calote grande de seus clientes.
+
+B. Dados Reputacionais (Reclame Aqui/Twitter)
+Analise a derivada (a taxa de variação), não apenas o número absoluto.
+
+Velocidade das Reclamações: 100 reclamações no mês é normal? Sim. Mas se ontem eram 2 por dia e hoje são 50, isso é uma "Bank Run" digital.
+
+Tags Específicas: Filtre reclamações por palavras-chave críticas: "Dinheiro preso", "Não consigo sacar", "Pix não enviado", "Conta bloqueada". Isso é muito mais grave do que "Atendimento ruim".
+
+Tempo de Resposta: Se o tempo médio de resposta subir drasticamente, pode indicar que a equipe de suporte foi demitida ou está sobrecarregada (caos interno).
+
+C. Dados de Mercado (CVM/Fundos)
+Muitos bancos médios se financiam através de fundos de investimento ou CDBs.
+
+Carteiras de Fundos: Identifique quais fundos têm grande exposição a CDBs ou Letras Financeiras do Banco Master.
+
+Resgates em Massa: Se os fundos que compram dívida desse banco começarem a sofrer muitos resgates, o banco perde sua fonte de financiamento.
+
+D. Diferencial Competitivo (O "Pulo do Gato")
+Google Trends (pytrends): Adicione uma camada de dados de intenção de busca.
+
+Termos: "Banco Master é confiável?", "Banco Master falência", "Risco Banco Master".
+
+Geralmente, o aumento nessas buscas antecede notícias oficiais em semanas.
